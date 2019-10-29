@@ -23,6 +23,7 @@ from 教务处认证失败 import *
 from 历史详情 import *
 import json
 import requests
+global T_oken, userid, name, poker, idd
 
 
 # 初始界面
@@ -61,9 +62,7 @@ class Loginwindow(QMainWindow, Ui_login_window):
         response = requests.post(url=url, headers=headers, data=json.dumps(form_data), verify=True)
         print(response.text)
         tmp_dict = dict(json.loads(response.text))
-        global T_oken
-        global userid
-        global name
+        
         T_oken = tmp_dict['data']['token']
         userid = tmp_dict['data']['user_id']
         var = tmp_dict['status']
@@ -217,9 +216,7 @@ class Startgame(QMainWindow, Ui_Startgame):
         dicts = dict(json.loads(response.text))
         print(dicts)
         s = dicts["data"]["card"]
-        global idd
         idd = dicts["data"]["id"]
-        global poker
         poker = Poker(s)
         self.mypuke_1.setStyleSheet(
             "border-image: url(:/.../puke/" + str(poker.cards[0][0]) + str(poker.cards[0][1]) + ".png);")
