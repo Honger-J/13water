@@ -2,7 +2,6 @@
 from fix_qt_import_erro import *
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog
-from PyQt5 import QtCore
 from 初始界面 import *
 from 登录界面 import *
 from 注册界面 import *
@@ -59,7 +58,7 @@ class Loginwindow(QMainWindow, Ui_login_window):
         headers = {
             "Content-Type": 'application/json',
         }
-        response = requests.post(url=url, headers=headers, data=json.dumps(form_data), verify=False)
+        response = requests.post(url=url, headers=headers, data=json.dumps(form_data), verify=True)
         print(response.text)
         tmp_dict = dict(json.loads(response.text))
         global T_oken
@@ -128,7 +127,7 @@ class Registerwindow(QMainWindow, Ui_register_window):
         headers = {
             "Content-Type": 'application/json',
         }
-        response = requests.post(url=url, headers=headers, data=json.dumps(form_data), verify=False)
+        response = requests.post(url=url, headers=headers, data=json.dumps(form_data), verify=True)
         print(response.text)
         tmp_dict = dict(json.loads(response.text))
         var = tmp_dict['status']
