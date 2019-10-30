@@ -1,5 +1,5 @@
 # 亚瑟王の十三水
-
+[![](https://img.shields.io/badge/Language-Python-blue)](https://img.shields.io/badge/Language-Python-blue) [![](https://img.shields.io/badge/code%20quality-A-brightgreen)](https://app.codacy.com/manual/Yaobink/Shisanshui/dashboard?bid=14710957)
 ## 编译与运行
 
 - 运行环境：Windows
