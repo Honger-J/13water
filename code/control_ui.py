@@ -62,7 +62,6 @@ class Loginwindow(QMainWindow, Ui_login_window):
         response = requests.post(url=url, headers=headers, data=json.dumps(form_data), verify=True)
         print(response.text)
         tmp_dict = dict(json.loads(response.text))
-        
         T_oken = tmp_dict['data']['token']
         userid = tmp_dict['data']['user_id']
         var = tmp_dict['status']
@@ -359,7 +358,7 @@ class Ranklist(QMainWindow, Ui_ranklist):
 
     def showrank(self):
         url = 'http://api.revth.com/rank'
-        response = requests.get(url=url, verify=False)
+        response = requests.get(url=url, verify=True)
         tmp_list = list(json.loads(response.text))
         self.name1.setText(tmp_list[0]['name'])
         self.score1.setText(str(tmp_list[0]['score']))
